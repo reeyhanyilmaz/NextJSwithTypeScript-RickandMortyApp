@@ -1,5 +1,18 @@
+export interface IGetCharacterResults{
+    info: IInfo,
+    results: ICharacters[],
+}
+
+//pagination için
+export interface IInfo{
+    count: number,
+    pages: number,
+    next: string,
+    prev: null,
+}
+
 //api'dan aldığım json dosyasını quicktype ile typlarını belirledim.
-export interface Characters {
+export interface ICharacters {
   id: number;
   name: string;
   status: Status;

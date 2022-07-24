@@ -1,12 +1,13 @@
-import type { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import imageLoader from '../imageLoader'
-import styles from '../styles/Home.module.css'
-import { ICharacters, IGetCharacterResults } from '../types/types'
+import type { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import imageLoader from "../imageLoader";
+import styles from "../styles/Home.module.css";
+import { ICharacters, IGetCharacterResults } from "../types/types";
 
 //character props'unu aldı, bu prop ICharacter type'a eşit [] bu array anlamına gelir.
-const Home: NextPage<{characters: ICharacters[]}> = ({characters}) => {
+const Home: NextPage<{ characters: ICharacters[] }> = ({ characters }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,35 +17,41 @@ const Home: NextPage<{characters: ICharacters[]}> = ({characters}) => {
       </Head>
 
       {characters.map((items) => {
-        return <div key={items.id}>{items.name}
-        
-        <Image 
-        loader={imageLoader}  //image optimization için
-        unoptimized  //true olunca kaynak görüntü olduğu gibi gelir (kalite, boyut).
-        src={items.image}
-        alt={items.name}
-        width="200"
-        height="200"
-        />
-        </div>
+        return (
+          <div key={items.id}>
+            <Link href={`/characters/${items.id}`}>
+              <a>
+                <h3> {items.name}</h3>
+              </a>
+            </Link>
+            
+            <Image
+              loader={imageLoader} //image optimization için
+              unoptimized //true olunca kaynak görüntü olduğu gibi gelir (kalite, boyut).
+              src={items.image}
+              alt={items.name}
+              width="200"
+              height="200"
+            />
+          </div>
+        );
       })}
     </div>
-  )   
-}
+  );
+};
 
-
-//getstaticProps kodun server side'da çalışmasını sağlar. Buradaki props'u da kullanacağımız func.'a veririz. 
+//getstaticProps kodun server side'da çalışmasını sağlar. Buradaki props'u da kullanacağımız func.'a veririz.
 //sadece pages folder'da import edilir, diğer componentlerde import edilmez prop olarak verilir.
 //buradaki context parametlere erişimi sağlar.
 export const getStaticProps: GetStaticProps = async (context) => {
   const res = await fetch("https://rickandmortyapi.com/api/character");
-  const {results}:IGetCharacterResults = await res.json();
+  const { results }: IGetCharacterResults = await res.json();
 
   return {
     props: {
-        characters: results,
-    }
-  }
-}
+      characters: results,
+    },
+  };
+};
 
 export default Home;

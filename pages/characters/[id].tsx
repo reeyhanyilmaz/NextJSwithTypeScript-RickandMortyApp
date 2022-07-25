@@ -10,19 +10,39 @@ import React from "react";
 
 function CharacterPage({ character }: { character: ICharacters }) {
   const router = useRouter();
+  console.log("router :>> ", router);
 
   return (
     <div className={styles.container}>
-      <h1>{character.name}</h1>
+      <div className={styles.content}>
+        <h1>{character.name}</h1>
 
-      <Image
-        loader={imageLoader}
-        unoptimized
-        src={character.image}
-        alt={character.name}
-        width="200px"
-        height="200px"
-      />
+        <Image
+          loader={imageLoader}
+          unoptimized
+          src={character.image}
+          alt={character.name}
+          width="200px"
+          height="200px"
+          className={styles.image}
+        />
+
+        <p>
+          * {character.status} - {character.species}
+          <br /> <br />
+          Gender: {character.gender}
+          <br /> <br />
+          Origin Name: {character.origin.name}
+          <br /> <br />
+          Character Type: {character.type}
+          <br /> <br />      
+          Last know location : {character.location.name}
+        </p>
+      </div>
+      
+      <button className={styles.btn} onClick={() => router.back()}>
+        back to home page
+      </button>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
+import Layout from "../components/Layout";
+import { ReactElement } from "react";
 
 function Home() {
   return (
@@ -38,16 +40,16 @@ function Home() {
             The fifth season premiered on June 20, 2021, and consisted of ten
             episodes. A sixth season was confirmed as part of a long-term deal
             in May 2018 that ordered 70 new episodes over an unspecified number
-            of seasons. <a href="https://en.wikipedia.org/wiki/Rick_and_Morty"> More details...</a>
-            <br /> <br />
-            <Link href="/characters">
-              <a>CHARACTERS CLICKS!</a>
-            </Link>
+            of seasons. 
           </p>
         </div>
       </div>
     </div>
   );
 }
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
 
 export default Home;

@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Link from "next/link";
+import {ReactElement} from "react";
 
 function Layout({ children }: { children: ReactNode }) {
   return (
@@ -14,7 +15,7 @@ function Layout({ children }: { children: ReactNode }) {
             </li>
             <li>
               <Link href="/characters">
-                <a>characters</a>
+                <a>Characters</a>
               </Link>
             </li>
           </ul>
@@ -27,6 +28,8 @@ function Layout({ children }: { children: ReactNode }) {
           display: flex;
           justify-content: space-between;
           padding: 1rem;
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          margin-bottom: 1rem;
         }
 
         nav ul {
@@ -38,13 +41,10 @@ function Layout({ children }: { children: ReactNode }) {
           margin-right: 1rem;
         }
 
-        nav ul li a {
-          text-decoration: none;
-          color: #333;
-        }
-
-        main {
-          padding: 1rem;
+        nav ul li:hover {
+          cursor: pointer;
+           
+          color: #ff0000;
         }
       `}</style>
     </div>

@@ -18,6 +18,12 @@
     border: 1px solid #eaeaea; 
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
+.content:hover{
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+.content h1:hover{
+    color: #ff0000;
+}
 
 .image{
     border-radius: 50%;

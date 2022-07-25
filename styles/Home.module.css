@@ -24,6 +24,15 @@
   flex-direction: row;
 }
 
+.pImg p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pImg p a {
+  color: #ff0000;
+}
+
 .pImg img {
   width: 400px;
   height: 500px;

@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import imageLoader from "../imageLoader";
 import { ICharacters, IGetCharacterResults } from "../types/types";
+import Layout from "../components/Layout";
+import { ReactElement } from "react";
 
 //character props'unu aldı, bu prop ICharacter type'a eşit [] bu array anlamına gelir.
 const Characters: NextPage<{ characters: ICharacters[] }> = ({
@@ -60,10 +62,15 @@ const Characters: NextPage<{ characters: ICharacters[] }> = ({
         .main:hover {
           background-color: #eaeaea;
           cursor: pointer;
+          color: #ff0000;
         }
       `}</style>
     </div>
   );
+};
+
+Characters.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 //getstaticProps kodun server side'da çalışmasını sağlar. Buradaki props'u da kullanacağımız func.'a veririz.

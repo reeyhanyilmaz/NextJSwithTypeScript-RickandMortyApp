@@ -45,9 +45,9 @@ function CharacterPage({ character }: { character: ICharacters }) {
       </button>
     </div>
   );
-}
+};
 
-CharacterPage.getLayout = function getLayout(page: typeof CharacterPage | any) {
+CharacterPage.getLayout = function getLayout(page: React.ReactElement) {
   return <Layout>{page}</Layout>;
 };
 

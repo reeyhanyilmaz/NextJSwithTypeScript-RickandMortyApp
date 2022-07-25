@@ -1,11 +1,11 @@
 //dosya ismini [] yapma sebebimiz dynamic routes
-import { ICharacters } from "../../types/types";
+import { ICharacters } from "../types/types";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import imageLoader from "../../imageLoader";
+import imageLoader from "../imageLoader";
 import { GetServerSideProps } from "next";
-import Layout from "../../components/Layout";
-import styles from "../../styles/Character.module.css";
+import Layout from "../components/Layout";
+import styles from "../styles/CharacterDetails.module.css";
 import React from "react";
 
 function CharacterPage({ character }: { character: ICharacters }) {

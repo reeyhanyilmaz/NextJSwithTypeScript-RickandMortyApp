@@ -5,12 +5,14 @@ import { useRouter } from "next/router";
 import imageLoader from "../../imageLoader";
 import { GetServerSideProps } from "next";
 import Layout from "../../components/Layout";
+import styles from "../../styles/Character.module.css";
+import React from "react";
 
 function CharacterPage({ character }: { character: ICharacters }) {
   const router = useRouter();
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>{character.name}</h1>
 
       <Image
@@ -25,7 +27,7 @@ function CharacterPage({ character }: { character: ICharacters }) {
   );
 }
 
-CharacterPage.getLayout = function getLayout(page: typeof CharacterPage) {
+CharacterPage.getLayout = function getLayout(page: typeof CharacterPage | any) {
   return <Layout>{page}</Layout>;
 };
 

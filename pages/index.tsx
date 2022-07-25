@@ -18,24 +18,38 @@ const Home: NextPage<{ characters: ICharacters[] }> = ({ characters }) => {
 
       {characters.map((items) => {
         return (
-          <div key={items.id}>
+          <div key={items.id} className="main">
             <Link href={`/characters/${items.id}`}>
               <a>
                 <h3> {items.name}</h3>
+                <Image
+                  loader={imageLoader} //image optimization için
+                  unoptimized //true olunca kaynak görüntü olduğu gibi gelir (kalite, boyut).
+                  src={items.image}
+                  alt={items.name}
+                  width="150"
+                  height="150"
+                  className="characterImage"
+                />
               </a>
             </Link>
-            
-            <Image
-              loader={imageLoader} //image optimization için
-              unoptimized //true olunca kaynak görüntü olduğu gibi gelir (kalite, boyut).
-              src={items.image}
-              alt={items.name}
-              width="200"
-              height="200"
-            />
           </div>
         );
       })}
+
+      <style jsx>{`
+        .main {        
+          background-color: #f5f5f5;
+          padding: 1rem;
+          border-radius: 5px;
+          border: 1px solid #eaeaea;        
+        }
+
+        .main:hover {
+          background-color: #eaeaea;
+          cursor: pointer;
+        }
+      `}</style>
     </div>
   );
 };

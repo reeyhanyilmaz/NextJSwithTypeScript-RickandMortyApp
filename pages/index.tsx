@@ -1,13 +1,8 @@
-import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import imageLoader from "../imageLoader";
 import styles from "../styles/Home.module.css";
-import { ICharacters, IGetCharacterResults } from "../types/types";
+import Link from "next/link";
 
-//character props'unu aldı, bu prop ICharacter type'a eşit [] bu array anlamına gelir.
-const Home: NextPage<{ characters: ICharacters[] }> = ({ characters }) => {
+function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,56 +11,43 @@ const Home: NextPage<{ characters: ICharacters[] }> = ({ characters }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {characters.map((items) => {
-        return (
-          <div key={items.id} className="main">
-            <Link href={`/characters/${items.id}`}>
-              <a>
-                <h3> {items.name}</h3>
-                <Image
-                  loader={imageLoader} //image optimization için
-                  unoptimized //true olunca kaynak görüntü olduğu gibi gelir (kalite, boyut).
-                  src={items.image}
-                  alt={items.name}
-                  width="150"
-                  height="150"
-                  className="characterImage"
-                />
-              </a>
+      <div className={styles.content}>
+        <h1>Rick and Morty</h1>
+
+        <div className={styles.pImg}>
+          <span>
+            <img src="/home.png" alt="home-img" />
+          </span>
+
+          <p>
+            Pick your favorite character and find out more about them. <br />
+            <br />
+            Rick and Morty is an American adult animated science fiction sitcom
+            created by Justin Roiland and Dan Harmon for Cartoon Network's
+            nighttime programming block Adult Swim. The series follows the
+            misadventures of cynical mad scientist Rick Sanchez and his
+            good-hearted but fretful grandson Morty Smith, who split their time
+            between domestic life and interdimensional adventures. Roiland
+            voices the eponymous characters, with Chris Parnell, Spencer Grammer
+            and Sarah Chalke voicing the rest of Rick and Morty's family. The
+            series originated from an animated short parody film of Back to the
+            Future, created by Roiland for Channel 101, a short-film festival
+            co-founded by Harmon. Since its debut, the series has received
+            critical acclaim for its originality, creativity and humor. They
+            have won two Primetime Emmy Awards for Outstanding Animated Program.
+            The fifth season premiered on June 20, 2021, and consisted of ten
+            episodes. A sixth season was confirmed as part of a long-term deal
+            in May 2018 that ordered 70 new episodes over an unspecified number
+            of seasons. <a href="https://en.wikipedia.org/wiki/Rick_and_Morty"> More details...</a>
+            <br /> <br />
+            <Link href="/characters">
+              <a>CHARACTERS CLICKS!</a>
             </Link>
-          </div>
-        );
-      })}
-
-      <style jsx>{`
-        .main {        
-          background-color: #f5f5f5;
-          padding: 1rem;
-          border-radius: 5px;
-          border: 1px solid #eaeaea;        
-        }
-
-        .main:hover {
-          background-color: #eaeaea;
-          cursor: pointer;
-        }
-      `}</style>
+          </p>
+        </div>
+      </div>
     </div>
   );
-};
-
-//getstaticProps kodun server side'da çalışmasını sağlar. Buradaki props'u da kullanacağımız func.'a veririz.
-//sadece pages folder'da import edilir, diğer componentlerde import edilmez prop olarak verilir.
-//buradaki context parametlere erişimi sağlar.
-export const getStaticProps: GetStaticProps = async (context) => {
-  const res = await fetch("https://rickandmortyapi.com/api/character");
-  const { results }: IGetCharacterResults = await res.json();
-
-  return {
-    props: {
-      characters: results,
-    },
-  };
-};
+}
 
 export default Home;

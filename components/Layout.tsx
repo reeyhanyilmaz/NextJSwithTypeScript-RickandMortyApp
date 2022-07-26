@@ -46,7 +46,6 @@ function Layout({ children }: { children: ReactNode }) {
           margin-bottom: 1rem;
           position:fixed; top:0px; left:0px; right:0px; 
           height: 100px; 
-          background: white; 
           z-index:1; //overlay ile üstte görünür
         }
 
@@ -65,15 +64,14 @@ function Layout({ children }: { children: ReactNode }) {
         }
 
         .btn {
-          border: none;
-          color: blue;
-          background-color: white;
+          color: black;
           cursor: pointer;
           text-decoration: underline;
         }
         
         .btn:hover {
           color: #ff0000;
+          background-color: none;
         }
 
         @media (max-width: 767px) {

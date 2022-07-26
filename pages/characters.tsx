@@ -25,7 +25,7 @@ const Characters: NextPageWithLayout<{ characters: ICharacters[] }> = ({
           <div key={items.id} className="main">
             <Link href={`/characters/${items.id}`}>
               <a>
-                <h3> {items.name}</h3>
+                <h3>{items.name}</h3>
                 <Image
                   loader={imageLoader} //image optimization için
                   unoptimized //true olunca kaynak görüntü olduğu gibi gelir (kalite, boyut).

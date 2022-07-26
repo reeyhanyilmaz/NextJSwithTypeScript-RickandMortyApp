@@ -17,6 +17,7 @@
   height: 100%;
   border: 1px solid #eaeaea;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  margin-top: 110px;
 }
 
 .pImg {
@@ -65,11 +66,12 @@
 
   .pImg {
     flex-direction: column;
+    width: 80%;
   }
 
   .pImg img {
-    width: 300px;
-    height: 400px;
+display: none;
+
   }
 }
 

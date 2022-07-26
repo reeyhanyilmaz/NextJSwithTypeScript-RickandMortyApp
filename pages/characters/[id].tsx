@@ -36,7 +36,7 @@ function CharacterPage({ character }: { character: ICharacters }) {
           height="200px"
         />
 
-        <span className={styles.parag}>
+        <p className={styles.parag}>
           <Image
             loader={imageLoader}
             unoptimized
@@ -45,10 +45,10 @@ function CharacterPage({ character }: { character: ICharacters }) {
             width="20px"
             height="2px"
           />
-          <p className={styles.write}>
+          <span className={styles.write}>
             {character.status} - {character.species}
-          </p>
-        </span>
+          </span>
+        </p>
 
         <p className={styles.parag}>
           <Image

@@ -41,7 +41,7 @@ function CharacterPage({ character }: { character: ICharacters }) {
       </div>
       
       <button className={styles.btn} onClick={() => router.back()}>
-        back to home page
+      for the previous page
       </button>
     </div>
   );

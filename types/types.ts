@@ -59,5 +59,5 @@ export interface IEpisodes {
   episode:    string;
   characters: string[];
   url:        string;
-  created:    Date;
+  created:    string;
 }

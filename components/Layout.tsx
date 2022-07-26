@@ -64,14 +64,12 @@ function Layout({ children }: { children: ReactNode }) {
         }
 
         .btn {
-          color: black;
           cursor: pointer;
           text-decoration: underline;
         }
         
         .btn:hover {
           color: #ff0000;
-          background-color: none;
         }
 
         @media (max-width: 767px) {

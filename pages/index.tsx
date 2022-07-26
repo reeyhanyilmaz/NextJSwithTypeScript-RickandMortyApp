@@ -3,6 +3,8 @@ import styles from "../styles/Home.module.css";
 import Layout from "../components/Layout";
 import { ReactElement } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import imageLoader from "../imageLoader";
 
 function Home() {
   const router = useRouter();
@@ -19,7 +21,14 @@ function Home() {
 
         <div className={styles.pImg}>
           <span>
-            <img src="/home.png" alt="home-img" />
+            <Image
+              loader={imageLoader}
+              unoptimized
+              src="/home.png"
+              alt="home-img"
+              width="800px"
+              height="500px"
+            />
           </span>
 
           <p>
@@ -41,11 +50,16 @@ function Home() {
             The fifth season premiered on June 20, 2021, and consisted of ten
             episodes. A sixth season was confirmed as part of a long-term deal
             in May 2018 that ordered 70 new episodes over an unspecified number
-            of seasons. 
+            of seasons.
           </p>
         </div>
 
-        <button className={styles.btn} onClick={() => router.push("https://rickandmortyapi.com/")} >more than information...</button>
+        <button
+          className={styles.btn}
+          onClick={() => router.push("https://rickandmortyapi.com/")}
+        >
+          more than information...
+        </button>
       </div>
     </div>
   );

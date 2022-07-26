@@ -20,11 +20,10 @@ function CharacterPage({ character }: { character: ICharacters }) {
         <link rel="icon" href="/details.jpg" />
       </Head>
 
-      <button className={styles.btn} onClick={() => router.back()}>
-        for the previous page
-      </button>
-
       <div className={styles.content}>
+        <button className={styles.btn} onClick={() => router.back()}>
+          for the previous page
+        </button>
         <h1>{character.name}</h1>
 
         <Image
@@ -57,7 +56,7 @@ function CharacterPage({ character }: { character: ICharacters }) {
             src="/name.png"
             alt="icon"
             width="20px"
-            height="20px"          
+            height="20px"
           />
           <span className={styles.write}>Gender:{character.gender}</span>
         </p>
@@ -71,7 +70,10 @@ function CharacterPage({ character }: { character: ICharacters }) {
             width="20px"
             height="20px"
           />
-          <span className={styles.write}> Origin Name: {character.origin.name}</span>
+          <span className={styles.write}>
+            {" "}
+            Origin Name: {character.origin.name}
+          </span>
         </p>
 
         <p className={styles.parag}>

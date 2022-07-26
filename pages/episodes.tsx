@@ -3,8 +3,9 @@ import Layout from "../components/Layout";
 import { GetStaticProps} from "next";
 import { IEpisodes } from "../types/types";
 import styles from "../styles/Episodes.module.css";
+import type { NextPageWithLayout } from 'next';
 
-const Episodes: React.FC<{ episodes: IEpisodes[] }> = ({ episodes }) => {
+const Episodes: NextPageWithLayout<{ episodes: IEpisodes[] }> = ({ episodes }) => {
       
   return (
     // <div>{JSON.stringify(episodes)}</div>
@@ -29,7 +30,6 @@ const Episodes: React.FC<{ episodes: IEpisodes[] }> = ({ episodes }) => {
 Episodes.getLayout = function getLayout(page: React.ReactElement) {
   return <Layout>{page}</Layout>;
 };
-
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const res = await fetch("https://rickandmortyapi.com/api/episode");

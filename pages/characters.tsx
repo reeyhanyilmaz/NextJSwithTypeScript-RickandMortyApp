@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetStaticProps} from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,9 +6,10 @@ import imageLoader from "../imageLoader";
 import { ICharacters, IGetCharacterResults } from "../types/types";
 import Layout from "../components/Layout";
 import { ReactElement } from "react";
+import type { NextPageWithLayout } from 'next';
 
 //character props'unu aldı, bu prop ICharacter type'a eşit [] bu array anlamına gelir.
-const Characters: NextPage<{ characters: ICharacters[] }> = ({
+const Characters: NextPageWithLayout<{ characters: ICharacters[] }> = ({
   characters,
 }) => {
   return (

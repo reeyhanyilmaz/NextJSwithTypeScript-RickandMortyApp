@@ -50,6 +50,7 @@ const Characters: NextPageWithLayout<{ characters: ICharacters[] }> = ({
           border-radius: 5px;
           border: 1px solid #eaeaea;
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          margin-top:120px
         }
         
         .main {

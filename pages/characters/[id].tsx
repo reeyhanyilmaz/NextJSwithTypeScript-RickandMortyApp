@@ -34,33 +34,73 @@ function CharacterPage({ character }: { character: ICharacters }) {
           alt={character.name}
           width="50"
           height="200px"
-          className={styles.detailImage}
         />
 
-        <span className={styles.span}>
-          <img src="/circle.png" alt="icon" className={styles.icon} />
-          {character.status} - {character.species}
+        <span className={styles.parag}>
+          <Image
+            loader={imageLoader}
+            unoptimized
+            src="/circle.png"
+            alt="icon"
+            width="20px"
+            height="2px"
+          />
+          <p className={styles.write}>
+            {character.status} - {character.species}
+          </p>
         </span>
 
-        <span className={styles.span}>
-          <img src="/name.png" alt="icon" className={styles.icon} /> 
-          Gender:{character.gender}
-        </span>
+        <p className={styles.parag}>
+          <Image
+            loader={imageLoader}
+            unoptimized
+            src="/name.png"
+            alt="icon"
+            width="20px"
+            height="20px"          
+          />
+          <span className={styles.write}>Gender:{character.gender}</span>
+        </p>
 
-        <span className={styles.span}>
-          <img src="/equality.png" alt="icon" className={styles.icon} /> 
-          Origin Name: {character.origin.name}
-        </span>
+        <p className={styles.parag}>
+          <Image
+            loader={imageLoader}
+            unoptimized
+            src="/equality.png"
+            alt="icon"
+            width="20px"
+            height="20px"
+          />
+          <span className={styles.write}> Origin Name: {character.origin.name}</span>
+        </p>
 
-        <span className={styles.span}>
-          <img src="/character.png" alt="icon" className={styles.icon} />
-          Character Type: {character.type ? character.type : "Type unknown"}
-        </span>
+        <p className={styles.parag}>
+          <Image
+            loader={imageLoader}
+            unoptimized
+            src="/character.png"
+            alt="icon"
+            width="20px"
+            height="20px"
+          />
+          <span className={styles.write}>
+            Character Type: {character.type ? character.type : "Type unknown"}
+          </span>
+        </p>
 
-        <span className={styles.span}>
-          <img src="/location.png" alt="icon" className={styles.icon} /> 
-          Last know location : {character.location.name}
-        </span>
+        <p className={styles.parag}>
+          <Image
+            loader={imageLoader}
+            unoptimized
+            src="/location.png"
+            alt="icon"
+            width="20px"
+            height="20px"
+          />
+          <span className={styles.write}>
+            Last know location : {character.location.name}
+          </span>
+        </p>
       </div>
     </div>
   );

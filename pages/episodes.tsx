@@ -5,8 +5,12 @@ import { GetStaticProps } from "next";
 import { IEpisodes } from "../types/types";
 import styles from "../styles/Episodes.module.css";
 import type { NextPageWithLayout } from "next";
+import Image from "next/image";
+import imageLoader from "../imageLoader";
 
-const Episodes: NextPageWithLayout<{ episodes: IEpisodes[] }> = ({episodes}) => {
+const Episodes: NextPageWithLayout<{ episodes: IEpisodes[] }> = ({
+  episodes,
+}) => {
   return (
     // <div>{JSON.stringify(episodes)}</div>
     <div className={styles.container}>
@@ -21,22 +25,53 @@ const Episodes: NextPageWithLayout<{ episodes: IEpisodes[] }> = ({episodes}) => 
           <div key={items.id} className={styles.content}>
             <h3>{items.name}</h3>
             <p>
-              <img src="/timetable.png" alt="time" className={styles.icon} />
-              {items.air_date}
+              <Image
+                loader={imageLoader}
+                unoptimized
+                src="/timetable.png"
+                alt="time"
+                width="30px"
+                height="30px"
+              />
+              <span className={styles.write}>{items.air_date}</span>
             </p>
+
             <p>
-              <img src="/chapter.png" alt="episode" className={styles.icon} />
-              {items.episode}
+              <Image
+                loader={imageLoader}
+                unoptimized
+                src="/chapter.png"
+                alt="episode"
+                width="30px"
+                height="30px"
+              />
+              <span className={styles.write}> {items.episode}</span>
             </p>
+
             <p>
-              <img src="/create.png" alt="created" className={styles.icon} />
-              {items.created}
+              <Image
+                loader={imageLoader}
+                unoptimized
+                src="/create.png"
+                alt="created"
+                width="30px"
+                height="30px"
+              />
+              <span className={styles.write}>{items.created}</span>
             </p>
+
             {items.characters.map((item) => {
               return (
                 <li key={item} className={styles.list}>
-                  <img src="/check.png" alt="check" className={styles.icon} />
-                  {item}
+                  <Image
+                    loader={imageLoader}
+                    unoptimized
+                    src="/check.png"
+                    alt="check"
+                    width="30px"
+                    height="30px"
+                  />
+                  <span className={styles.write}>{item}</span>
                 </li>
               );
             })}

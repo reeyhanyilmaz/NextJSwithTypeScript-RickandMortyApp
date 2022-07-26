@@ -1,10 +1,11 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Link from "next/link";
 import Layout from "../components/Layout";
 import { ReactElement } from "react";
+import { useRouter } from "next/router";
 
 function Home() {
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <Head>
@@ -43,6 +44,8 @@ function Home() {
             of seasons. 
           </p>
         </div>
+
+        <button className={styles.btn} onClick={() => router.push("https://rickandmortyapi.com/")} >more than information...</button>
       </div>
     </div>
   );

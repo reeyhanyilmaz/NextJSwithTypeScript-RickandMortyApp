@@ -46,6 +46,7 @@ function Layout({ children }: { children: ReactNode }) {
           margin-bottom: 1rem;
           position:fixed; top:0px; left:0px; right:0px; 
           height: 100px; 
+          background-color: white;
           z-index:1; //overlay ile üstte görünür
         }
 

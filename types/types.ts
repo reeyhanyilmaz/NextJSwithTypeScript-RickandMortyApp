@@ -1,3 +1,4 @@
+//for characters***********************
 export interface IGetCharacterResults{
     info: IInfo,
     results: ICharacters[],
@@ -47,4 +48,16 @@ export enum Status {
   Alive = "Alive",
   Dead = "Dead",
   Unknown = "unknown",
+}
+
+
+//for episodes*************************
+export interface IEpisodes {
+  id:         number;
+  name:       string;
+  air_date:   string;
+  episode:    string;
+  characters: string[];
+  url:        string;
+  created:    Date;
 }

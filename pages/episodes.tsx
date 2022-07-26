@@ -1,13 +1,12 @@
 import React from "react";
 import Head from "next/head";
 import Layout from "../components/Layout";
-import { GetStaticProps} from "next";
+import { GetStaticProps } from "next";
 import { IEpisodes } from "../types/types";
 import styles from "../styles/Episodes.module.css";
-import type { NextPageWithLayout } from 'next';
+import type { NextPageWithLayout } from "next";
 
-const Episodes: NextPageWithLayout<{ episodes: IEpisodes[] }> = ({ episodes }) => {
-      
+const Episodes: NextPageWithLayout<{ episodes: IEpisodes[] }> = ({episodes}) => {
   return (
     // <div>{JSON.stringify(episodes)}</div>
     <div className={styles.container}>
@@ -21,11 +20,25 @@ const Episodes: NextPageWithLayout<{ episodes: IEpisodes[] }> = ({ episodes }) =
         return (
           <div key={items.id} className={styles.content}>
             <h3>{items.name}</h3>
-            <p>{items.air_date}</p>
-            <p>{items.episode}</p>
-            <p>{items.created}</p>
+            <p>
+              <img src="/timetable.png" alt="time" className={styles.icon} />
+              {items.air_date}
+            </p>
+            <p>
+              <img src="/chapter.png" alt="episode" className={styles.icon} />
+              {items.episode}
+            </p>
+            <p>
+              <img src="/create.png" alt="created" className={styles.icon} />
+              {items.created}
+            </p>
             {items.characters.map((item) => {
-              return <li key={item}>{item}</li>;
+              return (
+                <li key={item} className={styles.list}>
+                  <img src="/check.png" alt="check" className={styles.icon} />
+                  {item}
+                </li>
+              );
             })}
           </div>
         );

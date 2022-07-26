@@ -20,6 +20,10 @@ function CharacterPage({ character }: { character: ICharacters }) {
         <link rel="icon" href="/details.jpg" />
       </Head>
 
+      <button className={styles.btn} onClick={() => router.back()}>
+        for the previous page
+      </button>
+
       <div className={styles.content}>
         <h1>{character.name}</h1>
 
@@ -28,30 +32,39 @@ function CharacterPage({ character }: { character: ICharacters }) {
           unoptimized
           src={character.image}
           alt={character.name}
-          width="200px"
+          width="50"
           height="200px"
-          className={styles.image}
+          className={styles.detailImage}
         />
 
-        <p>
-          * {character.status} - {character.species}
-          <br /> <br />
-          Gender: {character.gender}
-          <br /> <br />
+        <span className={styles.span}>
+          <img src="/circle.png" alt="icon" className={styles.icon} />
+          {character.status} - {character.species}
+        </span>
+
+        <span className={styles.span}>
+          <img src="/name.png" alt="icon" className={styles.icon} /> 
+          Gender:{character.gender}
+        </span>
+
+        <span className={styles.span}>
+          <img src="/equality.png" alt="icon" className={styles.icon} /> 
           Origin Name: {character.origin.name}
-          <br /> <br />
-          Character Type: {character.type}
-          <br /> <br />      
+        </span>
+
+        <span className={styles.span}>
+          <img src="/character.png" alt="icon" className={styles.icon} />
+          Character Type: {character.type ? character.type : "Type unknown"}
+        </span>
+
+        <span className={styles.span}>
+          <img src="/location.png" alt="icon" className={styles.icon} /> 
           Last know location : {character.location.name}
-        </p>
+        </span>
       </div>
-      
-      <button className={styles.btn} onClick={() => router.back()}>
-      for the previous page
-      </button>
     </div>
   );
-};
+}
 
 CharacterPage.getLayout = function getLayout(page: React.ReactElement) {
   return <Layout>{page}</Layout>;

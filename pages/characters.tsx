@@ -31,9 +31,8 @@ const Characters: NextPageWithLayout<{ characters: ICharacters[] }> = ({
                   unoptimized //true olunca kaynak görüntü olduğu gibi gelir (kalite, boyut).
                   src={items.image}
                   alt={items.name}
-                  width="150"
-                  height="150"
-                  className="characterImage"
+                  width="300"
+                  height="200"
                 />
               </a>
             </Link>
@@ -44,8 +43,8 @@ const Characters: NextPageWithLayout<{ characters: ICharacters[] }> = ({
       <style jsx>{`
         .container {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          grid-gap: 1rem;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          grid-gap: 2rem;
           margin: 1rem;
           padding: 1rem;
           border-radius: 5px;
